@@ -403,32 +403,20 @@ doc["add1to100"].bind('click', add)
 <div id="brython_div1"><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/jsjmZk-UBUw" width="560"></iframe></div>
 <!-- editor1 結束 --><hr/><!-- ########################################## --><h3>w4</h3>
 <p><strong>建造平面四連桿的尺寸設計: 固定桿長度為 1m, 主動旋轉桿長度為 0.4m, 第二旋轉桿長度為 0.6m, 第三旋轉桿長度為 0.9m</strong></p>
-<p><strong>（長度 0.4m）(主動桿)</strong></p>
-<p>1.在場景樹中添加一個「Solid」節點，命名為<span> </span><code class="notranslate">FixedBar</code>。</p>
-<p>2.在<span> </span><code class="notranslate">Solid</code><span> </span>的<span> </span><code class="notranslate">children</code><span> </span>欄位中添加一個「Shape」節點，並設置：<code class="notranslate">geometry</code>：選擇「Box」，設置<span> </span><code class="notranslate">size</code><span> </span>為<span> </span><code class="notranslate">[1, 0.05, 0.05]</code>（表示長 1m、寬 0.05m、高 0.05m）</p>
-<p>3.設置<span> </span><code class="notranslate">Solid</code><span> </span>的<span> </span><code class="notranslate">translation</code><span> </span>為<span> </span><code class="notranslate">[0.5, 0, 0.025]</code>，使固定桿的中心位於 x=0.5，y=0，z=0.025。</p>
-<p>4.設置<span> </span><code class="notranslate">Solid</code><span> </span>的<span> </span><code class="notranslate">physics</code><span> </span>屬性，添加「Physics」節點，並設置<span> </span><code class="notranslate">density</code><span> </span>為<span> </span><code class="notranslate">-1</code>（表示固定不動）。</p>
-<p>5.在場景樹中添加一個「Solid」節點，命名為 ActiveBar。</p>
-<p>6.在 Solid 的 children 欄位中添加一個「Shape」節點，並設置：geometry：選擇「Box」，設置 size 為 [0.4, 0.05, 0.05]。</p>
-<p>7.設置 Solid 的 translation 為 [0, 0, 0.05]。</p>
-<p>8.添加「Physics」節點，設置 mass 為 0.1。</p>
-<p>9.添加「HingeJoint」來連接固定桿和主動桿：</p>
-<p>10.在 ActiveBar 的 children 欄位中添加一個「HingeJoint」節點。</p>
-<p>11.設置 jointParameters 為「HingeJointParameters」，並設置：axis：[0, 0, 1]。anchor：[0, 0, 0]。</p>
-<p>12.設置 device 欄位，添加一個「RotationalMotor」節點，命名為 motor。</p>
-<p>13.設置 endPoint 為 SolidReference，並選擇 FixedBar 作為參考。</p>
-<p>14.重要修正：設置 ActiveBar 的 controller 屬性為 four_bar_controller（注意：這裡只填控制器名稱，不要包含路徑或 .py 後綴）。</p>
-<p><strong>（長度 0.6m）(第二桿)</strong></p>
-<p>15.在場景樹中添加一個「Solid」節點，命名為 SecondBar。</p>
-<p>16.在 Solid 的 children 欄位中添加一個「Shape」節點，並設置：geometry：選擇「Box」，設置 size 為 [0.6, 0.05, 0.05]。</p>
-<p>17.設置 Solid 的 translation 為 [0.4, 0, 0.05]。</p>
-<p>18.添加「Physics」節點，設置 mass 為 0.1。</p>
-<p>19.添加「HingeJoint」來連接主動桿和第二桿：在 SecondBar 的 children 欄位中添加一個「HingeJoint」節點。</p>
-<p>20.設置 jointParameters 為「HingeJointParameters」，並設置：axis：[0, 0, 1]。anchor：[0, 0, 0]。</p>
-<p>21.設置 endPoint 為 SolidReference，並選擇 ActiveBar 作為參考。</p>
-<p>22.在 ActiveBar 的 children 欄位中添加一個「Slot」節點，並設置 endPoint 為 SecondBar。</p>
-<p>依此類推製作第三桿</p>
-<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/65a4Fkog1H0" width="560"></iframe></p><h2>Tasks3</h2>
+<p>1.建立robot群組</p>
+<p>2.robot下的children建立1個solid群組，2個higejoint群組，並選一個為首要，命名為joint1</p>
+<p>3.solid的children中建立shape作為固定桿(X1,Y0.1,Z0.1)</p>
+<p>4.<span>joint1下的endpoint選擇solid性質，命名為link1，並往下的children中建立pose及higejoint，pose下在建立shape為主動桿(0.4,0.1,0.1)</span><span>，shape命名為link1，再將主動桿所屬的pose的translation設為(0.2,0,0)(此為link1中心點)，而higejoint為主動桿與第二桿連接，並命名為joint2。</span></p>
+<p><span>5.joint1的endpoint下有translation(此為連接處的座標點)，設(-0.5,0,0.1)</span></p>
+<p><span>6.在joint1下有boundingObject，選擇pose，往下children選擇USE link1，並調整座標至(0.2,0,0)(與link1的pose座標一致)，在設置physics</span></p>
+<p>7.以上順序重複製作，主要為base--&gt;joint1--&gt;link1--&gt;<span>joint2--&gt;link2--&gt;</span><span>joint3--&gt;link3--&gt;joint4</span></p>
+<p><span>8.joint4在robot群組中的children，與joint1同排列，並將endpoint設為solidreference，並選為use link3</span></p>
+<p><span>9.每一階的joint中各有jointparameters、device、emdpoint，其中link1上的device要加入Rotationalmotor，並命名為motor</span></p>
+<p><span>10.而每一階的jointparameters，axis設為(0,0,1)(意為繞z軸旋轉)，但anchor要設為桿的長度，這樣才是joint到joint的距離，分別為(-0.5,0,0)、(0.4,0,0)、(0.6,0,0)，此座標是接續的，原點根據base的起點，另外設置的joint4則為(0.5,0,0)</span></p>
+<p><strong></strong></p>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/65a4Fkog1H0" width="560"></iframe></p>
+<p>此為稍作修改後的圖形</p>
+<p><img alt="" height="351" src="/images/螢幕擷取畫面 2025-03-16 013106.png" width="800"/></p><h2>Tasks3</h2>
 <p><strong>Solvespace四連桿練習</strong><br/>1:繪製4種連桿，寬10mm、深10mm、長、(1)40mm、(2)60mm、(3)90mm，最後<span>繪製與連桿中相符洞口大小的圓桿當joint</span></p>
 <p><span><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/Qph-LoHp8hA" width="560"></iframe></span></p>
 <p>2:組裝</p>
