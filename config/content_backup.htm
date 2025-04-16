@@ -453,10 +453,147 @@ doc["add1to100"].bind('click', add)
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/iOeLvm_IQMg" width="560"></iframe></p>
 <p>基本的四連桿都練習過後，接下來做的就是實現四連桿實用，這兩部影片最大的困難是shooter的組裝，上傳的是成功的影片，第一次組裝時應該花了下午到晚上的時間，要理解組裝方向及相對關係才能排出先平行還是先共點。</p><h2>Tasks6</h2>
 <h3>Tutorial1</h3>
+<p><strong>Start webots</strong></p>
 <p>1.啟動 Webots<br/>如果你還沒安裝 Webots，請先下載並安裝。安裝完成後，雙擊 Webots 的圖示啟動程式。第一次啟動時，可能會要求你選擇介面主題，選擇你喜歡的即可。</p>
 <p>2.建立新專案<br/>點選「檔案」&gt;「新建」&gt;「新建專案目錄」，然後設定專案名稱為 my_first_simulation，並將世界檔案命名為 my_first_simulation.wbt。確保勾選「加入矩形競技場」選項，這樣就會自動建立一個包含地板和牆壁的簡單環境。</p>
+<hr/><!-- ########################################## -->
+<p>Create a New World</p>
+<p>A World is a file containing information like where the objects are, what they look like, how they interact with each other, what is the color of the sky, and the definitions of gravity, friction, masses of the objects, etc. It defines the initial state of a simulation. The different objects are called Nodes and are organized hierarchically in a Scene Tree. Therefore, a node may contain sub-nodes. A world is stored in a file having the .wbt extension. The file format is derived from the VRML97 language, and is human readable. The world files must be stored directly in a directory called worlds.</p>
+<p>一個<strong data-end="29" data-start="23">世界</strong>（World）是一個檔案，包含像是物體的位置、外觀、它們如何互動、天空的顏色、以及重力、摩擦力、物體質量等定義的資訊。它定義了模擬的初始狀態。不同的物體被稱為<strong data-end="114" data-start="108">節點</strong>（Nodes），並且以<strong data-end="132" data-start="125">場景樹</strong>（Scene Tree）的階層結構組織。因此，一個節點可能包含子節點。世界檔案儲存在具有 <code data-end="183" data-start="177">.wbt</code> 副檔名的檔案中。該檔案格式源自 VRML97 語言，並且是人類可讀的。世界檔案必須直接儲存在名為 <strong data-end="243" data-start="233">worlds</strong> 的資料夾中。</p>
+<p>World – 世界，這是 Webots 的基本檔案類型，定義模擬的初始狀態。</p>
+<p>File – 檔案，這裡指的是儲存世界資訊的檔案。</p>
+<p>Objects – 物體，Webots 中的模擬物件。</p>
+<p>Interact with – 互動，指的是物體之間的交互行為。</p>
+<p>Color of the sky – 天空顏色，環境的一部分，通常會在背景設定中修改。</p>
+<p>Gravity – 重力，物理參數之一。</p>
+<p>Friction – 摩擦力，物理參數之一。</p>
+<p>Masses – 質量，物理參數之一。</p>
+<p>Nodes – 節點，Webots 中的基本物件，可以包含其他物件（子節點）。</p>
+<p>Scene Tree – 場景樹，將節點按照層次結構組織的方式。</p>
+<p>Sub-nodes – 子節點，節點下層的結構。</p>
+<p>.wbt extension – .wbt 副檔名，Webots 世界檔的格式。</p>
+<p>VRML97 – 一種三維虛擬現實建模語言，Webots 世界檔格式來源。</p>
+<p>Human readable – 人類可讀，表示該檔案格式容易理解。</p>
+<p></p>
+<p>1.A is B that...</p>
+<p>用來解釋 A 是 B 且 B 是什麼，這是一個常見的定義句型。</p>
+<p>例句：</p>
+<p>"A World is a file containing information like..."<br/>→ 「世界是一個包含以下資訊的檔案……」</p>
+<p>2.like</p>
+<p>用來舉例或列出類似的事物。</p>
+<p>例句：</p>
+<p>"...information like where the objects are, what they look like..."<br/>→ 「像是物體的位置、外觀等資訊」</p>
+<p>3.and</p>
+<p>用來連接詞語或句子中的多個項目。</p>
+<p>例句：</p>
+<p>"...the color of the sky, and the definitions of gravity, friction..."<br/>→ 「天空顏色，還有重力、摩擦力的定義」</p>
+<p>4.Therefore</p>
+<p>表示因果關係，通常用來引出結論。</p>
+<p>例句：</p>
+<p>"Therefore, a node may contain sub-nodes."<br/>→ 「因此，一個節點可能包含子節點。」</p>
+<p>5.may</p>
+<p>表示可能性，用來描述不確定的情況。</p>
+<p>例句：</p>
+<p>"A node may contain sub-nodes."<br/>→ 「一個節點可能會包含子節點。」</p>
+<p>6.having</p>
+<p>用來描述具有某種特徵的事物。</p>
+<p>例句：</p>
+<p>"A world is stored in a file having the .wbt extension."<br/>→ 「世界檔案是儲存在具有 .wbt 副檔名的檔案中。」</p>
+<p>7.derived from</p>
+<p>表示某事物來源於或基於某個東西。</p>
+<p>例句：</p>
+<p>"The file format is derived from the VRML97 language."<br/>→ 「檔案格式來源於 VRML97 語言。」</p>
+<p>8.must be</p>
+<p>用來強調必須做某事，是義務或要求。</p>
+<p>例句：</p>
+<p>"The world files must be stored directly in a directory called worlds."<br/>→ 「世界檔案必須直接儲存在名為 worlds 的資料夾中。」</p>
+<p>主要是在講解場地</p>
+<p>調整地板和牆壁大小<br/>在「場景樹」中選擇 RectangleArena，然後調整以下參數：</p>
+<p>floorTileSize：改為 0.25 0.25，讓地板磚塊變小。</p>
+<p>wallHeight：改為 0.05，讓牆壁變矮。</p>
+<p>加入木箱<br/>點選「新增」按鈕，選擇 PROTO nodes (Webots Projects) / objects / factory / containers / WoodenBox (Solid)，在競技場中間會出現一個大箱子。選擇這個箱子，然後調整以下參數：</p>
+<p>size：改為 0.1 0.1 0.1，讓箱子變小。</p>
+<p>translation：改為 0 0 0.05，讓箱子稍微浮起。</p>
+<p>接著，使用複製貼上（Ctrl+C 和 Ctrl+V）來新增兩個箱子，並將它們移動到競技場的不同位置，避免它們都集中在中間。</p>
+<hr/><!-- ########################################## -->
+<p><strong>Add an e-puck Robot</strong></p>
+<p>The e-puck is a small robot having differential wheels, 10 LEDs, and several sensors including 8 DistanceSensors and a Camera. In this tutorial we are only interested in using its wheels.</p>
+<p>e-puck 是一個小型機器人，擁有差速輪、10 顆 LED 燈和幾個感測器，包括 8 顆距離感測器和一個相機。在本教程中，我們只會關注它的輪子。我們會在接下來的教程中學習如何使用其他功能。</p>
+<p>主要在講解e-puck機器人</p>
+<p>加入 e-puck 機器人<br/>點選「新增」按鈕，選擇 PROTO nodes (Webots Projects) / robots / mobile / e-puck，這樣就會在競技場中加入一台 e-puck 機器人。</p>
+<p>設定機器人控制程式<br/>在「場景樹」中選擇 e-puck，然後在 controller 欄位中輸入控制程式的名稱，例如 my_controller。這樣，當我們建立控制程式時，機器人就會使用它來控制行為。</p>
+<p></p>
+<p>e-puck - 小型機器人，這是 Webots 中的預設機器人之一。</p>
+<p>differential wheels - 差速輪，兩個輪子的轉速差控制機器人的移動。</p>
+<p>LEDs - 發光二極管，這裡指的是機器人上的燈。</p>
+<p>DistanceSensors - 距離感測器，用來測量機器人與物體的距離。</p>
+<p>PROTO node - 一種 Webots 節點，用來創建可重用的自定義物件。</p>
+<p>Scene Tree - 場景樹，Webots 的節點組織結構。</p>
+<p>real-time - 即時模擬模式。</p>
+<p>mass - 質量，物體的物理屬性之一。</p>
+<p>basicTimeStep - 基本時間步長，用於控制物理模擬的步伐。</p>
+<p>reset - 重置，將模擬恢復到初始狀態。</p>
+<p>simulation - 模擬，指在 Webots 中執行的虛擬環境。</p>
+<p>apply a force - 施加力，用於操控物體的移動。</p>
+<p>ctrl key - 控制鍵，用於進行某些操作的快捷鍵。</p>
+<hr/><!-- ########################################## -->
+<p data-pm-slice="1 1 []"><strong>Create a New Controller</strong></p>
+<p>We will now program a simple controller that will just make the robot move forwards. A controller is a program that defines the behavior of a robot. Webots controllers can be written in the following programming languages: C, C++, Java, Python, MATLAB, etc. C, C++ and Java controllers need to be compiled before they can be run as robot controllers. Python and MATLAB controllers are interpreted languages so they will run without being compiled. In this tutorial, we are going to use C as a reference language but all the code snippets are also available in C++, Java, Python and MATLAB. Refer to the language chapter to setup a controller using a different programming language.</p>
+<p>The controller field of a Robot node specifies which controller is currently associated to the robot. Note that the same controller can be used by several robots, but a robot can only use one controller at a time. Each controller is executed in a separate child process usually spawned by Webots. Because they are independent processes, controllers don't share the same address space, and may run on different processor cores.</p>
+<p class="" data-end="273" data-start="42">控制器是一個程式，用來定義機器人的行為。Webots 控制器可以使用以下程式語言編寫：C、C++、Java、Python、MATLAB 等。C、C++ 和 Java 控制器需要編譯後才能作為機器人控制器運行，而 Python 和 MATLAB 控制器是直譯語言，因此不需要編譯就可以運行。在本教程中，我們將使用 C 作為參考語言，但所有的程式碼片段也會提供 C++、Java、Python 和 MATLAB 版本。若要使用其他程式語言設置控制器，請參閱語言章節。</p>
+<p class="" data-end="443" data-start="275">機器人節點（Robot node）的控制器欄位指定了當前與機器人相關聯的控制器。請注意，同一個控制器可以被多個機器人使用，但每次只有一個機器人可以使用同一個控制器。每個控制器都是在一個單獨的子進程中執行，這些子進程通常是由 Webots 啟動的。由於它們是獨立的進程，控制器之間不共享相同的地址空間，並且可能會在不同的處理器核心上運行。</p>
+<p>Controller - 控制器：定義機器人行為的程式。</p>
+<p>Robot node - 機器人節點：Webots 中的一個節點，代表機器人本身。</p>
+<p>Program - 程式：計算機執行的指令集，這裡指的是控制機器人行為的程式。</p>
+<p>Compiled - 編譯：將程式碼轉換為機器能執行的格式。</p>
+<p>Interpreted - 直譯：程式碼不需要編譯，而是由解釋器直接執行。</p>
+<p>Language - 語言：指程式語言，這裡提到 C、C++、Java、Python 和 MATLAB。</p>
+<p>Independent processes - 獨立進程：指每個控制器在不同的進程中運行，互不影響。</p>
+<p>Address space - 地址空間：記憶體中用來儲存程序和資料的區域。</p>
+<p>Processor cores - 處理器核心：處理器中的獨立運算單元。</p>
+<p></p>
+<p>1.We will now - 用來表示即將進行的動作，語氣較為強調未來行動。</p>
+<p>例句：We will now program a simple controller.</p>
+<p>2.that will - 用來表示目的或未來的動作。</p>
+<p>例句：We will now program a simple controller that will just make the robot move forwards.</p>
+<p>3.A controller is a program that - 定義和解釋某事物的結構，這裡是對「控制器」的解釋。</p>
+<p>例句：A controller is a program that defines the behavior of a robot.</p>
+<p>4.can be written in - 表示某事物可以以某種方式來做，這裡用於說明控制器的語言選擇。</p>
+<p>例句：Webots controllers can be written in the following programming languages.</p>
+<p>5.may run - 表示可能發生的狀況或行為。</p>
+<p>例句：...and may run on different processor cores.</p>
+<p>6.is executed in - 描述某事物的運行或執行方式。</p>
+<p>例句：Each controller is executed in a separate child process usually spawned by Webots.</p>
+<p>7.Refer to - 用來表示參考某資料或章節。</p>
+<p>例句：Refer to the language chapter to setup a controller using a different programming language.</p>
+<p></p>
+<p>主要在講解建立控制程式<br/>在 Webots 中，控制程式是用來定義機器人行為的程式。你可以使用 Python、C、C++、Java 等語言來撰寫控制程式。這裡我們以 Python 為例。</p>
+<p>撰寫簡單的前進程式<br/>在 Webots 的控制程式資料夾中，建立一個新的 Python 檔案，命名為 my_controller.py，並輸入以下程式碼：</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from controller import Robot, Motor
+
+TIME_STEP = 64
+MAX_SPEED = 6.28
+
+robot = Robot()
+
+leftMotor = robot.getMotor('left wheel motor')
+rightMotor = robot.getMotor('right wheel motor')
+
+leftMotor.setPosition(float('inf'))
+rightMotor.setPosition(float('inf'))
+
+leftMotor.setVelocity(0.1 * MAX_SPEED)
+rightMotor.setVelocity(0.1 * MAX_SPEED)
+
+while robot.step(TIME_STEP) != -1:
+    pass
+</pre>
+<p><br/><br/></p>
+<hr/><!-- ########################################## -->
 <p></p><h3>Tutorial2</h3>
-<h3>Tutorial3</h3><h1>Homework</h1>
+<p class="" data-end="199" data-start="118"><span class="relative -mx-px my-[-0.2rem] rounded px-px py-[0.2rem] transition-colors duration-100 ease-in-out">在本教學中，我們將學習如何在環境中建立簡單的物件。第一步是建立一顆會與環境互動的球體。我們將探討與節點相關的多個概念：它們的意義、如何建立、如何關聯等。此外，我們還將了解如何設定物理屬性。</span></p>
+<p class="" data-end="326" data-start="201"><span class="relative -mx-px my-[-0.2rem] rounded px-px py-[0.2rem] transition-colors duration-100 ease-in-out">將介紹幾種類型的節點。它們的詳細定義可以在參考手冊中找到。</span><span class="relative -mx-px my-[-0.2rem] rounded px-px py-[0.2rem] transition-colors duration-100 ease-in-out">擁有節點圖表將有助於理解節點之間的繼承關係。</span></p>
+<p class="" data-end="326" data-start="201"><span class="relative -mx-px my-[-0.2rem] rounded px-px py-[0.2rem] transition-colors duration-100 ease-in-out"></span></p><h3>Tutorial3</h3><h1>Homework</h1>
 <p>作業 (30%)</p>
 <p>HW1 (5%): <span style="background-color: #ffff00;">建立由 Box 組成的平面四連桿機構 Webots 模擬場景</span></p>
 <p style="padding-left: 30px;">part1:</p>
