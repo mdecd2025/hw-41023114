@@ -458,7 +458,9 @@ doc["add1to100"].bind('click', add)
 <p>基本的四連桿都練習過後，接下來做的就是實現四連桿實用，這兩部影片最大的困難是shooter的組裝，上傳的是成功的影片，第一次組裝時應該花了下午到晚上的時間，要理解組裝方向及相對關係才能排出先平行還是先共點。</p>
 <h3>w9</h3>
 <p>shooter導入webot</p>
-<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/v_c-pkeymm0" width="560"></iframe></p><h2>Tasks6</h2>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/v_c-pkeymm0" width="560"></iframe></p>
+<p></p>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/8vzJpdpREn4" width="560"></iframe></p><h2>Tasks6</h2>
 <h3>Tutorial1</h3>
 <p><strong>Start webots</strong></p>
 <p>1.啟動 Webots<br/>如果你還沒安裝 Webots，請先下載並安裝。安裝完成後，雙擊 Webots 的圖示啟動程式。第一次啟動時，可能會要求你選擇介面主題，選擇你喜歡的即可。</p>
@@ -813,7 +815,24 @@ while robot.step(TIME_STEP) != -1:
 <hr/><!-- ########################################## -->
 <p></p>
 <h3>Tutorial3</h3>
-<h1>Homework</h1>
+<p>The aim of this tutorial is to familiarize yourself with some nodes related to the graphical rendering. Good looking simulations can be created very quickly when these nodes are used adequately. A good graphics quality does not only enhance the user's experience, it is also essential for simulations where robots perceive their environment (camera image processing, line following, etc.).</p>
+<p>這個教學的目的是讓你熟悉一些跟圖形渲染相關的節點。只要善用這些節點，就能很快做出視覺效果不錯的模擬畫面。畫面品質好不只會讓使用者體驗更好，對於那些需要靠影像來感知環境的模擬（像是攝影機影像處理、循線等等）來說，也非常重要。</p>
+<hr/><!-- ########################################## -->
+<p><strong>Light</strong></p>
+<p>Lights The lighting of a world is determined by Light nodes and the Background . There are three types of light nodes: the DirectionalLight, the PointLight and the SpotLight. A DirectionalLight simulates a light which is infinitely far (ex: the sun), a PointLight simulates light emitted from a single point (ex: a light bulb), and a SpotLight simulates a conical light (ex: a flashlight). This figure shows a comparison between them. Each type of light node can cast shadows. </p>
+<p class="" data-end="116" data-start="15">一個場景的光線是由 Light 節點和背景來決定的。Light 節點有三種類型：DirectionalLight（方向光）、PointLight（點光源）和 SpotLight（聚光燈）。</p>
+<ul data-end="229" data-start="117">
+<li class="" data-end="161" data-start="117">
+<p class="" data-end="161" data-start="119">DirectionalLight 模擬的是從無限遠處照射過來的光（例如：太陽）。</p>
+</li>
+<li class="" data-end="197" data-start="162">
+<p class="" data-end="197" data-start="164">PointLight 則是從某個點發出來的光（例如：電燈泡）。</p>
+</li>
+<li class="" data-end="229" data-start="198">
+<p class="" data-end="229" data-start="200">SpotLight 則是錐形照射的光（例如：手電筒）。</p>
+</li>
+</ul>
+<p></p><h1>Homework</h1>
 <p>作業 (30%)</p>
 <p>HW1 (5%): <span style="background-color: #ffff00;">建立由 Box 組成的平面四連桿機構 Webots 模擬場景</span></p>
 <p style="padding-left: 30px;">part1:</p>
