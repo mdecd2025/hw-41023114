@@ -145,14 +145,26 @@ img.add_border {
     <div id="tipue_search_content">Exam2 << <a href='Exam2.html'>Previous</a> <a href='Final.html'>Next</a> >> Final<br /><h1>Exam3</h1>
 <p>Exam3 (20%): Webots 機電模擬場景的協同設計</p>
 <p>操作影片標題: 國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam3 - 學員學號</p>
-<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/zoZrZbL7LXM" width="560"></iframe></p>
 <p>1.先將校園ipv6改為老師事先規範過的個人ipv6，再將自己倉儲中的init.py檔中的ip改為老師規範的ipv6</p>
 <p>2.開啟webot --stream建立網頁串聯阜號，並開啟個人HW1的模擬</p>
 <p>3.使用http://localhost:1234/index.html</p>
 <p>4.將下方網址輸入的localhost改為老師規範的ipv6，如影片上所示，即可作動</p>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/zoZrZbL7LXM" width="560"></iframe></p>
+<p></p>
 <!-- editor1 結束 --><hr/>
 <p><!-- ########################################## --></p>
-<p></p><br />Exam2 << <a href='Exam2.html'>Previous</a> <a href='Final.html'>Next</a> >> Final</div>
+<p>1.如EXAM3-1的1 2 3 4步驟相同，僅需將webot中模擬場景改為老師的three_digit_counter.7z</p>
+<p>2.使用內建的controller並將seven_segment下的number改為自己學號</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">timestep = int(supervisor.getBasicTimeStep())
+    while supervisor.step(timestep) != -1:
+        try:
+            # Get user input for the number to display
+            number = 114
+            controller.display_number(number)
+        except ValueError:
+            print("Invalid input. Please enter an integer between 0 and 999.")</pre>
+<p>3.在網頁上重製場景即可</p>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/y6y-M4HgcAo" width="560"></iframe></p><br />Exam2 << <a href='Exam2.html'>Previous</a> <a href='Final.html'>Next</a> >> Final</div>
         
     <!-- footer -->
       <div class="container">
