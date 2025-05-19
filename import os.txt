@@ -32,3 +32,4 @@ class Init(object):
 
  ip = "2001:288:6004:17:fff1:cd25:0000:b002"
 http://localhost:1234/index.html
+pip install websocket-server
