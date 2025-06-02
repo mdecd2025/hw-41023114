@@ -142,134 +142,37 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">Tasks2 << <a href='Tasks2.html'>Previous</a> <a href='w3.html'>Next</a> >> w3<br /><h1>ipv6</h1>
-<p>以下有操作紀錄影片</p>
-<!-- 導入 brython 程式庫 -->
-<p>
-<script src="./../cmsimde/static/brython.js"></script>
-<script src="./../cmsimde/static/brython_stdlib.js"></script>
-</p>
-<!-- 啟動 Brython -->
-<p>
-<script>
-window.onload=function(){
-brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
-}
-</script>
-</p>
-<p><!-- 導入 FileSaver 與 filereader --></p>
-<p>
-<script src="./../cmsimde/static/ace/FileSaver.min.js" type="text/javascript"></script>
-<script src="./../cmsimde/static/ace/filereader.js" type="text/javascript"></script>
-</p>
-<p><!-- 導入 ace --></p>
-<p>
-<script src="./../cmsimde/static/ace/ace.js" type="text/javascript"></script>
-<script src="./../cmsimde/static/ace/ext-language_tools.js" type="text/javascript"></script>
-<script src="./../cmsimde/static/ace/mode-python3.js" type="text/javascript"></script>
-<script src="./../cmsimde/static/ace/snippets/python.js" type="text/javascript"></script>
-</p>
-<p><!-- 導入 gearUtils-0.9.js Cango 齒輪繪圖程式庫 -->
-<script src="./../cmsimde/static/Cango-24v03-min.js"></script>
-<script src="./../cmsimde/static/gearUtils-09.js"></script>
-<script src="./../cmsimde/static/SVGpathUtils-6v03-min.js"></script>
-<script src="./../cmsimde/static/sylvester.js"></script>
-<script src="./../cmsimde/static/PrairieDraw.js"></script>
-</p>
-<p><!-- 請注意, 這裡使用 Javascript 將 localStorage["kw_py_src1"] 中存在近端瀏覽器的程式碼, 由使用者決定存檔名稱--></p>
-<p>
-<script type="text/javascript">
-function doSave(storage_id, filename){
-    var blob = new Blob([localStorage[storage_id]], {type: "text/plain;charset=utf-8"});
-    filename = document.getElementById(filename).value
-    saveAs(blob, filename+".py");
-}
-</script>
-</p>
-<p>
-<script type="text/python3">
-from browser import document as doc
-import ace
-# 清除畫布
-def clear_bd1(ev):
-    bd = doc["brython_div1"]
-    bd.clear()
-Ace1 = ace.Editor(editor_id="kw_editor1", console_id="kw_console1", container_id="kw__container1", storage_id="kw_py_src1" )
-# 從 gist 取出程式碼後, 放入 editor 作為 default 程式
-def run1():
-    # 利用 get 取下 src 變數值
-    try:
-        url = doc.query["src"]
-    except:
-        url = "https://gist.githubusercontent.com/41023114/7343b96bb714426651d29fb576ceb846/raw/375ba11415ac4dc05697850a8dc1afb4cd577447/ipv6+number"
-    prog = open(url).read()
-
-    # 將程式載入編輯區
-    Ace1.editor.setValue(prog)
-    Ace1.editor.scrollToRow(0)
-    Ace1.editor.gotoLine(0)
-    # 直接執行程式
-    #ns = {'__name__':'__main__'}
-    #exec(prog, ns)
-    # 按下 run 按鈕
-    Ace1.run()
-
-# 執行程式, 顯示輸出結果與清除輸出結果及對應按鈕綁定
-doc['kw_run1'].bind('click', Ace1.run)
-doc['kw_show_console1'].bind('click', Ace1.show_console)
-doc['kw_clear_console1'].bind('click', Ace1.clear_console)
-doc['clear_bd1'].bind('click', clear_bd1)
-# 呼叫函式執行
-run1()
-</script>
-</p>
-<p><!-- add 1 to 100 開始 -->
-<script type="text/python3">
-from browser import document as doc
-import ace
-
-# 清除畫布
-def clear_bd1(ev):
-    bd = doc["brython_div1"]
-    bd.clear()
-
-# 利用 ace 中的 Editor 建立 Ace2 物件, 其中的輸入變數分別對應到頁面中的編輯區物件
-Ace2 = ace.Editor(editor_id="kw_editor1", console_id="kw_console1", container_id="kw__container1", storage_id="kw_py_src1" )
-
-add1to100_url = "https://gist.githubusercontent.com/41023114/7343b96bb714426651d29fb576ceb846/raw/375ba11415ac4dc05697850a8dc1afb4cd577447/ipv6+number"
-
-# 從 gist 取得程式碼
-add_src = open(add1to100_url).read()
-def add(ev):
-    Ace2.editor.setValue(add_src)
-    Ace2.editor.scrollToRow(0)
-    Ace2.editor.gotoLine(0)
-    Ace2.run()
-
-# id 為 "add1to100" 的按鈕點按時, 執行 add 方法
-doc["add1to100"].bind('click', add)
-</script>
-</p>
-<p><!-- add 1 to 100 結束--></p>
-<!-- editor1 開始 -->
-<p><!-- 用來顯示程式碼的 editor 區域 --></p>
-<div id="kw_editor1" style="width: 600px; height: 300px;"></div>
-<p><!-- 以下的表單與按鈕與前面的 Javascript doSave 函式以及 FileSaver.min.js 互相配合 --></p>
-<p><!-- 存擋表單開始 --></p>
-<form><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src1', 'kw_filename1');" type="submit" value="Save"/></form>
-<p><!-- 存擋表單結束 --></p>
-<p></p>
-<p><!-- 執行與清除按鈕開始 --></p>
-<p><button id="kw_run1">Run</button> <button id="kw_show_console1">Output</button> <button id="kw_clear_console1">清除輸出區</button><button id="clear_bd1">清除繪圖區</button><button onclick="window.location.reload()">Reload</button></p>
-<p><!-- 執行與清除按鈕結束 --></p>
-<p></p>
-<p><!-- 程式執行 ouput 區 --></p>
-<div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console1"></textarea></div>
-<p><!-- Brython 程式執行的結果, 都以 brython_div1 作為切入位置 --></p>
-<div id="brython_div1"></div>
-<!-- editor1 結束 --><hr/><!-- ########################################## -->
-<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/LUBZG4Enoko" width="560"></iframe></p>
-<br />Tasks2 << <a href='Tasks2.html'>Previous</a> <a href='w3.html'>Next</a> >> w3</div>
+    <div id="tipue_search_content">Final << <a href='Final.html'>Previous</a> <a href='Brython.html'>Next</a> >> Brython<br /><h1>info</h1>
+<p><img alt="" height="278" src="./../images/sensor.png" width="500"/><img alt="" height="349" src="./../images/sensor0.2.png" width="300"/></p>
+<p>在老師的範本中，是將sensor以圓球形置於球框，並且radius設0.2</p>
+<p><img alt="" height="229" src="./../images/lookup_table.png" width="300"/></p>
+<p>接著是sensor的很重要的一環，lookup table是用來告訴 Webots 模擬器：感測器讀到的值要怎麼對應成實際回傳的數值。</p>
+<p>如圖中</p>
+<p>1.距離是 0 公尺時，感測器回傳 1000，有1%雜訊</p>
+<p>2.距離是0.12公尺時，感測器回傳620，有1%雜訊</p>
+<p>依此類推</p>
+<p>而下方的type是sensor射線型態，主要是對紅色物體敏感、不會畫出紅點、會忽略透明物體</p>
+<p><img alt="" height="212" src="./../images/Center of Mass.png" width="500"/></p>
+<p>Center of Mass是質心，如果質心太高或偏一邊，在移動或受到力量時，就更容易翻倒</p>
+<p>Inertia Matrix慣性矩陣簡單解釋：</p>
+<p>它是一個 3x3 的矩陣（數學上叫「張量」），裡面包含了物體繞 x、y、z 三個方向旋轉時的轉動慣量</p>
+<p>如果你是圓盤或輪子那種簡單形狀，就只要一個值；但對於複雜 3D 形狀，就需要整個矩陣來描述</p>
+<p>| Ixx   0     0  |</p>
+<p>|  0   Iyy    0  |</p>
+<p>|  0    0   Izz  |</p>
+<p>其中：</p>
+<p>Ixx 是繞 x 軸的轉動慣量</p>
+<p>Iyy 是繞 y 軸的</p>
+<p>Izz 是繞 z 軸的</p>
+<p>而這數值投球機跟球框是一樣的，因為他們用的youbot是一樣的，輪子就是一樣的</p>
+<p><img alt="" height="242" src="./../images/ContactProperties1.png" width="500"/><img alt="" height="243" src="./../images/ContactProperties2.png" width="500"/></p>
+<p>在worldinfo中設置了兩個ContactProperties，其中改動的參數有</p>
+<p>coulombFriction：滑動摩擦係數--&gt;值越高，越不容易滑動</p>
+<p>frictionRotation：旋轉摩擦（抗扭轉）<span>--&gt;值越高，越難在原地旋轉或扭轉</span></p>
+<p>forceDependentSlip：依據力量產生的滑動<span>--&gt;越高：力量大時滑越多</span></p>
+<p>Bounce：彈跳 / 回彈係數<span>--&gt;</span><span>值越高，能量損失越少，越好彈回</span></p>
+<p><span><img alt="" height="234" src="./../images/basictime.png" width="300"/></span></p>
+<p>basicTimeStep可以決定每一步模擬代表的「模擬時間長度」，單位是毫秒（ms）。<br/> 就是用來更新所有物理量變化的間隔，所以越小越精細</p><br />Final << <a href='Final.html'>Previous</a> <a href='Brython.html'>Next</a> >> Brython</div>
         
     <!-- footer -->
       <div class="container">
