@@ -1178,10 +1178,34 @@ while robot.step(TIME_STEP) != -1:
 <h3>info</h3>
 <p><img alt="" height="278" src="/images/sensor.png" width="500"/><img alt="" height="349" src="/images/sensor0.2.png" width="300"/></p>
 <p>在老師的範本中，是將sensor以圓球形置於球框，並且radius設0.2</p>
-<p></p>
-<p></p>
-<p></p>
-<p></p><h1>Brython</h1>
+<p><img alt="" height="229" src="/images/lookup_table.png" width="300"/></p>
+<p>接著是sensor的很重要的一環，lookup table是用來告訴 Webots 模擬器：感測器讀到的值要怎麼對應成實際回傳的數值。</p>
+<p>如圖中</p>
+<p>1.距離是 0 公尺時，感測器回傳 1000，有1%雜訊</p>
+<p>2.距離是0.12公尺時，感測器回傳620，有1%雜訊</p>
+<p>依此類推</p>
+<p>而下方的type是sensor射線型態，主要是對紅色物體敏感、不會畫出紅點、會忽略透明物體</p>
+<p><img alt="" height="212" src="/images/Center of Mass.png" width="500"/></p>
+<p>Center of Mass是質心，如果質心太高或偏一邊，在移動或受到力量時，就更容易翻倒</p>
+<p>Inertia Matrix慣性矩陣簡單解釋：</p>
+<p>它是一個 3x3 的矩陣（數學上叫「張量」），裡面包含了物體繞 x、y、z 三個方向旋轉時的轉動慣量</p>
+<p>如果你是圓盤或輪子那種簡單形狀，就只要一個值；但對於複雜 3D 形狀，就需要整個矩陣來描述</p>
+<p>| Ixx   0     0  |</p>
+<p>|  0   Iyy    0  |</p>
+<p>|  0    0   Izz  |</p>
+<p>其中：</p>
+<p>Ixx 是繞 x 軸的轉動慣量</p>
+<p>Iyy 是繞 y 軸的</p>
+<p>Izz 是繞 z 軸的</p>
+<p>而這數值投球機跟球框是一樣的，因為他們用的youbot是一樣的，輪子就是一樣的</p>
+<p><img alt="" height="242" src="/images/ContactProperties1.png" width="500"/><img alt="" height="243" src="/images/ContactProperties2.png" width="500"/></p>
+<p>在worldinfo中設置了兩個ContactProperties，其中改動的參數有</p>
+<p>coulombFriction：滑動摩擦係數--&gt;值越高，越不容易滑動</p>
+<p>frictionRotation：旋轉摩擦（抗扭轉）<span>--&gt;值越高，越難在原地旋轉或扭轉</span></p>
+<p>forceDependentSlip：依據力量產生的滑動<span>--&gt;越高：力量大時滑越多</span></p>
+<p>Bounce：彈跳 / 回彈係數<span>--&gt;</span><span>值越高，能量損失越少，越好彈回</span></p>
+<p><span><img alt="" height="234" src="/images/basictime.png" width="300"/></span></p>
+<p>basicTimeStep可以決定每一步模擬代表的「模擬時間長度」，單位是毫秒（ms）。<br/> 就是用來更新所有物理量變化的間隔，所以越小越精細</p><h1>Brython</h1>
 <p><button id="add1to100">1 add to 100</button></p>
 <!-- 導入 brython 程式庫 -->
 <p>
