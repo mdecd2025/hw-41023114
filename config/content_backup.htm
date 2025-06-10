@@ -1181,7 +1181,20 @@ while robot.step(TIME_STEP) != -1:
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/iz14FPFwpso" width="560"></iframe></p>
 <p></p>
 <p>2.接上一步，在PLATE之後放置之前創建好的shooter並套入controller進行控制，能夠使用up down left right操控方向以及m射k收擊球板</p>
-<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/HhELoDrJQGs" width="560"></iframe></p><h3>info</h3>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/HhELoDrJQGs" width="560"></iframe></p>
+<p>3.關於youbot_stand到達第一個座標時會卡住的問題，後續找到是因為<span>InteriorWheel.prote與ExteriorWheel.proto是webot本身預設的，雖然他是.proto檔，但她前身也是一個robot+hingejoint群組，將這之下的motor的maxVelocity預設值14.8更改為100即可<br/></span></p>
+<p>HingeJoint {</p>
+<p>    device [</p>
+<p>      RotationalMotor {</p>
+<p>        name IS name</p>
+<p>        maxVelocity 100</p>
+<p>      }</p>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/bXhhixxTTJo" width="560"></iframe></p>
+<p>4.然後加入spervisor跟score_board</p>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/lPMKqwMjzRw" width="560"></iframe></p>
+<p>5.在supervisor下的feed_ball出現問題，由於我自行建立的youbot一開始是直接使用robot群組下的name做更動，但feed_ball對於生成球的座標是根據youbot改變的，而改變是根據DEF ... Robot，因此儘管不會顯示錯誤，但仍然無法生成球，因此只要在feed_ball下更改我的DEFname以及在.wbt中給robot群組加DEFname就能做動</p>
+<p><img alt="" height="548" src="/images/DEFname.png" width="700"/></p>
+<p></p><h3>info</h3>
 <p><img alt="" height="278" src="/images/sensor.png" width="500"/><img alt="" height="349" src="/images/sensor0.2.png" width="300"/></p>
 <p>在老師的範本中，是將sensor以圓球形置於球框，並且radius設0.2</p>
 <p><img alt="" height="229" src="/images/lookup_table.png" width="300"/></p>
