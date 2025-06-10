@@ -1194,7 +1194,8 @@ while robot.step(TIME_STEP) != -1:
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/lPMKqwMjzRw" width="560"></iframe></p>
 <p>5.在supervisor下的feed_ball出現問題，由於我自行建立的youbot一開始是直接使用robot群組下的name做更動，但feed_ball對於生成球的座標是根據youbot改變的，而改變是根據DEF ... Robot，因此儘管不會顯示錯誤，但仍然無法生成球，因此只要在feed_ball下更改我的DEFname以及在.wbt中給robot群組加DEFname就能做動</p>
 <p><img alt="" height="548" src="/images/DEFname.png" width="700"/></p>
-<p></p><h3>info</h3>
+<p>6.更改<span>ThreeDigitSevenSegment.protoㄉ的放置情形，使用score_board supervisor的controller時似乎會無法讀取.proto的內容，儘管.proto內容與在.wbt中使用Transform節點的擺設情形是一致的，但這似乎是設定，需要更改成在.wbt中放置七段顯示器不放置.proto，或是從controll下手更改</span></p>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/5dQYh0Xog5k" width="560"></iframe></p><h3>info</h3>
 <p><img alt="" height="278" src="/images/sensor.png" width="500"/><img alt="" height="349" src="/images/sensor0.2.png" width="300"/></p>
 <p>在老師的範本中，是將sensor以圓球形置於球框，並且radius設0.2</p>
 <p><img alt="" height="229" src="/images/lookup_table.png" width="300"/></p>
