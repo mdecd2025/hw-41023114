@@ -1199,7 +1199,18 @@ while robot.step(TIME_STEP) != -1:
 <p>7.更改完七段顯示器計分後，隨之而來的問題是無法使用supervisor偵測計分，檢查後發現計分上需要用的連動有emitter及receiver，並且他們的<span>channel必須一致才能連動，檢測完後開始投籃發現一直無法計分，但似乎是lookup table出問題，將他更改並改回來後再把youbot_shooter的起始距離往後移動一點即可</span></p>
 <p>而本次內容是更改為shooter和stand都由玩家操控，使用B生成球J打擊K收回，controll由info紀錄</p>
 <p><span><img alt="" height="296" src="/images/distance.png" width="600"/></span></p>
-<p><span><a href="/downloads/final.7z">/downloads/final.7z</a></span></p><h3>info</h3>
+<p>8.</p>
+<p>在自行製作.proto檔案時發現proto檔案無法直接生成，必須得自行建立，尤其是得將"]{" 這兩個括號給分出來分清楚，而以下就是自行建立.proto檔案的起手內容</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">#VRML_SIM R2023b utf8
+
+PROTO shooter1 [
+  # 場景控制
+  field SFVec3f    translation  0 0 0
+  field SFRotation rotation     0 0 1 0
+] {
+  Robot {</pre>
+<p>之後導入自己的proto-robot後fourbar_controller無法支援proto檔案，根本原因為proto檔案會省略掉太多子節點，儘管在Scite中檢視也都沒有錯誤，但還是會無法讀取到motor，接著發現不只因為proto檔案無法讀取motor，導入後將proto轉換為bass node後也無法讀取，原因是主要robot為youbot群組，若在下面再加上shooter的robot群組會發生報錯，所以若想將shooter與youbot連動，那麼shooter必須使用solid群組</p>
+<p><a href="/downloads/final.7z">/downloads/final.7z</a></p><h3>info</h3>
 <p><img alt="" height="278" src="/images/sensor.png" width="500"/><img alt="" height="349" src="/images/sensor0.2.png" width="300"/></p>
 <p>在老師的範本中，是將sensor以圓球形置於球框，並且radius設0.2</p>
 <p><img alt="" height="229" src="/images/lookup_table.png" width="300"/></p>
@@ -1595,7 +1606,8 @@ while supervisor.step(timestep) != -1:
 <div><span>    </span><span>set_display</span><span>(</span><span>supervisor</span><span>, </span><span>score</span><span>)</span></div>
 </div>
 </div>
-</div><h1>Brython</h1>
+</div>
+<p></p><h1>Brython</h1>
 <p><button id="add1to100">1 add to 100</button></p>
 <!-- 導入 brython 程式庫 -->
 <p>
