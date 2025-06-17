@@ -1211,7 +1211,7 @@ PROTO shooter1 [
   Robot {</pre>
 <p>之後導入自己的proto-robot後fourbar_controller無法支援proto檔案，根本原因為proto檔案會省略掉太多子節點，儘管在Scite中檢視也都沒有錯誤，但還是會無法讀取到motor，接著發現不只因為proto檔案無法讀取motor，導入後將proto轉換為bass node後也無法讀取，原因是主要robot為youbot群組，若在下面再加上shooter的robot群組會發生報錯，所以若想將shooter與youbot連動，那麼shooter必須使用solid群組</p>
 <p><a href="/downloads/final.7z">/downloads/final.7z</a></p>
-<h3>info</h3>
+<p><a href="/downloads/final-report.pdf">/downloads/final-report.pdf</a></p><h3>info</h3>
 <p><img alt="" height="278" src="/images/sensor.png" width="500"/><img alt="" height="349" src="/images/sensor0.2.png" width="300"/></p>
 <p>在老師的範本中，是將sensor以圓球形置於球框，並且radius設0.2</p>
 <p><img alt="" height="229" src="/images/lookup_table.png" width="300"/></p>
@@ -1226,10 +1226,10 @@ PROTO shooter1 [
 <p>Inertia Matrix慣性矩陣簡單解釋：</p>
 <p>它是一個 3x3 的矩陣（數學上叫「張量」），裡面包含了物體繞 x、y、z 三個方向旋轉時的轉動慣量</p>
 <p>如果你是圓盤或輪子那種簡單形狀，就只要一個值；但對於複雜 3D 形狀，就需要整個矩陣來描述</p>
-<p>| Ixx   0     0  |</p>
-<p>|  0   Iyy    0  |</p>
-<p>|  0    0   Izz  |</p>
-<p>其中：</p>
+<p>l Ixx 0 0 l</p>
+<p>l 0 Iyy 0 l</p>
+<p>l 0 0 Izz l</p>
+<p>其中:</p>
 <p>Ixx 是繞 x 軸的轉動慣量</p>
 <p>Iyy 是繞 y 軸的</p>
 <p>Izz 是繞 z 軸的</p>
@@ -1608,8 +1608,7 @@ while supervisor.step(timestep) != -1:
 </div>
 </div>
 </div>
-<p></p>
-<h1>Brython</h1>
+<p></p><h1>Brython</h1>
 <p><button id="add1to100">1 add to 100</button></p>
 <p><!-- 導入 brython 程式庫 --></p>
 <p>

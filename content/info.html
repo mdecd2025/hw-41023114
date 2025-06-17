@@ -157,10 +157,10 @@ img.add_border {
 <p>Inertia Matrix慣性矩陣簡單解釋：</p>
 <p>它是一個 3x3 的矩陣（數學上叫「張量」），裡面包含了物體繞 x、y、z 三個方向旋轉時的轉動慣量</p>
 <p>如果你是圓盤或輪子那種簡單形狀，就只要一個值；但對於複雜 3D 形狀，就需要整個矩陣來描述</p>
-<p>| Ixx   0     0  |</p>
-<p>|  0   Iyy    0  |</p>
-<p>|  0    0   Izz  |</p>
-<p>其中：</p>
+<p>l Ixx 0 0 l</p>
+<p>l 0 Iyy 0 l</p>
+<p>l 0 0 Izz l</p>
+<p>其中:</p>
 <p>Ixx 是繞 x 軸的轉動慣量</p>
 <p>Iyy 是繞 y 軸的</p>
 <p>Izz 是繞 z 軸的</p>
@@ -539,8 +539,7 @@ while supervisor.step(timestep) != -1:
 </div>
 </div>
 </div>
-<p></p>
-<br />Final << <a href='Final.html'>Previous</a> <a href='Brython.html'>Next</a> >> Brython</div>
+<p></p><br />Final << <a href='Final.html'>Previous</a> <a href='Brython.html'>Next</a> >> Brython</div>
         
     <!-- footer -->
       <div class="container">
